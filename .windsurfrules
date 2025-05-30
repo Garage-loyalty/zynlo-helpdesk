@@ -1,0 +1,45 @@
+Below you will find a variety of important rules spanning:
+- the dev_workflow
+- the .windsurfrules document self-improvement workflow
+- the template to follow when modifying or adding new sections/rules to this document.
+
+---
+DEV_WORKFLOW
+---
+description: Guide for using meta-development script (scripts/dev.js) to manage task-driven development workflows
+globs: **/*
+filesToApplyRule: **/*
+alwaysApply: true
+---
+
+- **Global CLI Commands**
+  - Task Master now provides a global CLI through the `task-master` command
+  - All functionality from `scripts/dev.js` is available through this interface
+  - Install globally with `npm install -g claude-task-master` or use locally via `npx`
+  - Use `task-master <command>` instead of `node scripts/dev.js <command>`
+  - Examples:
+    - `task-master list` instead of `node scripts/dev.js list`
+    - `task-master next` instead of `node scripts/dev.js next`
+    - `task-master expand --id=3` instead of `node scripts/dev.js expand --id=3`
+  - All commands accept the same options as their script equivalents
+  - The CLI provides additional commands like `task-master init` for project setup
+
+- **Development Workflow Process**
+  - Start new projects by running `task-master init` or `node scripts/dev.js parse-prd --input=<prd-file.txt>` to generate initial tasks.json
+  - Begin coding sessions with `task-master list` to see current tasks, status, and IDs
+  - Analyze task complexity with `task-master analyze-complexity --research` before breaking down tasks
+  - Select tasks based on dependencies (all marked 'done'), priority level, and ID order
+  - Clarify tasks by checking task files in tasks/ directory or asking for user input
+  - View specific task details using `task-master show <id>` to understand implementation requirements
+  - Break down complex tasks using `task-master expand --id=<id>` with appropriate flags
+  - Clear existing subtasks if needed using `task-master clear-subtasks --id=<id>` before regenerating
+  - Implement code following task details, dependencies, and project standards
+  - Verify tasks according to test strategies before marking as complete
+  - Mark completed tasks with `task-master set-status --id=<id> --status=done`
+  - Update dependent tasks when implementation differs from original plan
+  - Generate task files with `task-master generate` after updating tasks.json
+  - Maintain valid dependency structure with `task-master fix-dependencies` when needed
+  - Respect dependency chains and task priorities when selecting work
+  - Report progress regularly using the list command
+
+[... continue with rest of .windsurfrules content ...]
