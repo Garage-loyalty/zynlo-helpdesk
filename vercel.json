@@ -1,7 +1,9 @@
 {
   "framework": "nextjs",
-  "buildCommand": "cd ../.. && pnpm build",
+  "buildCommand": "pnpm build",
+  "outputDirectory": ".next",
   "installCommand": "pnpm install --frozen-lockfile",
+  "ignoreCommand": "git diff HEAD^ HEAD --quiet .",
   "functions": {
     "apps/dashboard/app/api/*": {
       "maxDuration": 30
@@ -12,4 +14,4 @@
     "NEXT_PUBLIC_SUPABASE_ANON_KEY": "@supabase_anon_key",
     "SUPABASE_SERVICE_ROLE_KEY": "@supabase_service_key"
   }
-} 
+}
