@@ -1,5 +1,6 @@
 {
   "framework": "nextjs",
-  "buildCommand": "pnpm build",
-  "installCommand": "pnpm install --frozen-lockfile"
+  "buildCommand": "cd ../.. && pnpm build --filter=dashboard",
+  "installCommand": "pnpm install --frozen-lockfile",
+  "rootDirectory": "apps/dashboard"
 }
